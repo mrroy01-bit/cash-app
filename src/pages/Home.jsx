@@ -4,7 +4,7 @@ import Header from '../Components/Header';
 import Background from '../assets/video/back-vid.mp4';
 import Scam from '../assets/img/home2022.png';
 import Navimg from '../assets/img/send_desktop.png';
-
+import Spend from '../assets/img/spend_desktop.webp';
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hideC4, setHideC4] = useState(false);
@@ -47,9 +47,10 @@ const Home = () => {
       )}
 
       <div id='page1' className={`page ${menuOpen ? 'page-disabled' : ''}`}>
-        <video src={Background} autoPlay loop muted className='vid fixed w-screen '></video>
-        <div className='header-container sticky'>
+        <video src={Background} autoPlay loop muted className='video w-[100%]'></video>
+        <div className='header-container'>
           <Header menuOpen={menuOpen} onMenuToggle={handleMenuToggle} />
+
           <div className='items-center text-white flex justify-center mt-[2vh] text-7xl font-bold uppercase'>
             <h1 className='text-8xl'> <span>Do More</span> <br />
               <span className='ml-8'> with Your</span> <br />
@@ -96,29 +97,53 @@ const Home = () => {
                 <span className='text-white text-base ml-5 pt-1'>It’s free to send and receive money,<br /> stocks, or bitcoin** within Cash App.</span>
               </div>
               <div className=' text-slate-200 mt-[2vh] text-xs '>Cash App is a financial services platform, not a bank. Banking services are provided by Cash App’s bank <br /> partner(s).
-               Prepaid debit cards issued by Sutton Bank, Member FDIC. Brokerage services by Cash App  Investing LLC,<br />
+                Prepaid debit cards issued by Sutton Bank, Member FDIC. Brokerage services by Cash App  Investing LLC,<br />
                 member FINRA/SIPC, subsidiary of Block, Inc. Bitcoin services provided by Block, Inc,<br />
-                 formerly known as Square, Inc.</div>
+                formerly known as Square, Inc.</div>
             </div>
             <div className='phone-img'>
 
-            <img src={Navimg} alt=""  />
+              <img src={Navimg} alt="" />
             </div>
 
           </div>
-         
+
         </div>
         <div>
-        <div className={`c-4 ${hideC4 ? 'hidden' : ''}  absolute  w-fit flex items-end justify-end`}>
-          <div className='A-1 flex '>
-          <h4 className='text-black text-sm  leading-4 font-bold pt-5 pr-2 pl-2'>Download  <br />Cash App</h4>
-          <img src={Scam} className='w-20 h-20 rounded bg-white' alt="" />
+          <div className={`c-4 ${hideC4 ? 'hidden' : ''}  absolute  w-fit flex items-end justify-end`}>
+            <div className='A-1 flex '>
+              <h4 className='text-black text-sm  leading-4 font-bold pt-5 pr-2 pl-2'>Download  <br />Cash App</h4>
+              <img src={Scam} className='w-20 h-20 rounded bg-white' alt="" />
+            </div>
           </div>
         </div>
       </div>
+
+      <div id='page3' className='page'>
+        <div className='flex'>
+            <div className='background'>
+              <h1 className='text-white text-center text-8xl leading-none	 font-semibold ml-[20vh] mt-[20vh] '>
+                <span className='flex'> SAVE ON </span>
+                <span className='flex '>EVERYDAY </span>
+                <span className='flex '>SPENDING </span>
+              </h1>
+              <div className=' ml-[19vh] '>
+                <div className='flex'>
+                  <a href="#" className="bg-white text-[#5300E8] font-semibold pt-3 pb-3 px-4 rounded-full">LEAR MORE</a> <br />
+                  <span className='text-white text-base ml-5 pt-1'>Get exclusive discounts with Cash <br /> App Pay and the Cash App Card</span>
+                </div>
+              </div>
+              <div className='spend-img'>
+                <img src={Spend} alt="" />
+              </div>
+
+            </div>
+           
+          </div>
+        </div>
+
+
       </div>
-     
-    </div>
   );
 }
 
