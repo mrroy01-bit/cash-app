@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import Header from '../Components/Header';
 import Background from '../assets/video/back-vid.mp4';
@@ -7,11 +7,21 @@ import Navimg from '../assets/img/send_desktop.png';
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hideC4, setHideC4] = useState(false);
 
-  /**
-   * Scrolls the page to the element with the id "page2" using a smooth 
-   * animation with a duration of 3 seconds and an ease of power2.inOut
-   */
+  useEffect(() => {
+    const handleScroll = () => {
+      const page1Element = document.getElementById('page1');
+      if (page1Element) {
+        const bounding = page1Element.getBoundingClientRect();
+        setHideC4(bounding.top < window.innerHeight && bounding.bottom >= 0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollPage2 = () => {
     gsap.to(window, {
       duration: 2.5,
@@ -23,11 +33,6 @@ const Home = () => {
     });
   }
 
-  /**
-   * Toggles the menu open or closed
-   * 
-   * If the menu is currently open, it will be closed and vice versa
-   */
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
@@ -37,7 +42,7 @@ const Home = () => {
       {menuOpen && (
         <div
           className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40"
-          onClick={handleMenuToggle} // Close menu on overlay click
+          onClick={handleMenuToggle}
         />
       )}
 
@@ -104,7 +109,7 @@ const Home = () => {
          
         </div>
         <div>
-        <div className='c-4  absolute bottom-0 right-0 w-fit flex items-end justify-end'>
+        <div className={`c-4 ${hideC4 ? 'hidden' : ''}  absolute bottom-0 right-0 w-fit flex items-end justify-end`}>
           <div className='border border-white bg-white '>
 
           <img src={Scam} className='w-32 h-32' alt="" />
@@ -118,3 +123,4 @@ const Home = () => {
 }
 
 export default Home;
+
