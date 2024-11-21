@@ -109,10 +109,10 @@ const Home = () => {
          
         </div>
         <div>
-        <div className={`c-4 ${hideC4 ? 'hidden' : ''}  absolute bottom-0 right-0 w-fit flex items-end justify-end`}>
-          <div className='border border-white bg-white '>
-
-          <img src={Scam} className='w-32 h-32' alt="" />
+        <div className={`c-4 ${hideC4 ? 'hidden' : ''}  absolute  w-fit flex items-end justify-end`}>
+          <div className='A-1 flex '>
+          <h4 className='text-black text-sm  leading-4 font-bold pt-5 pr-2 pl-2'>Download  <br />Cash App</h4>
+          <img src={Scam} className='w-20 h-20 rounded bg-white' alt="" />
           </div>
         </div>
       </div>

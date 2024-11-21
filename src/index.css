@@ -29,4 +29,17 @@
 }
 .c-4{
     position: fixed;
+    width: 15vw;
+    height: 90px;
+    bottom: 30px;
+    right: 40px;
+    background-color:white;
+    text-align: center;
+    border-radius: 10px;
+}
+.A-1{
+    margin-top: 14px;
+    padding-right: 10px;
+    margin-bottom: 5px;
+
 }
